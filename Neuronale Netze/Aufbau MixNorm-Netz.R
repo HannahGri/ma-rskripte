@@ -57,6 +57,7 @@ test_features<- test_data%>% select(-c(y_feuer,
                                        y_sturm, y_el,
                                        SchNr))
 
+test_Y<- test_data%>% select(y_feuer, y_lw, y_sturm, y_el) 
 
 train_data<- df_data%>% anti_join(test_data) 
 
