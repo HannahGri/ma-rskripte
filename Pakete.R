@@ -2,7 +2,7 @@
 #Das hier klappt: python 3.10.0, tf 2.18.0, keras 3.6.0
 library(reticulate)
 library(tensorflow)
-library(keras3)
+library(keras)
 
 py_version() #3.10
 keras$`__version__` # 3.6.0
@@ -20,6 +20,7 @@ tf<-import("tensorflow")
 
 
 library(reservr)
+library(keras3)
 library(tidymodels)
 library(tibble)
 library(ggplot2)
