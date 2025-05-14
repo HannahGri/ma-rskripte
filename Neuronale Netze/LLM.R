@@ -8,8 +8,8 @@ logit_data <- train_data %>% mutate(x_feuer = ifelse(y_feuer==0,1,0),
 
 # Leitungswasser
 
-
 # Dummy-Codierung der nominalen Kategorien mit model.matrix
+# Lineare Regression für positive Aufwände
 lm_lw <- lm(y_lw~.,
                       data =as.data.frame(
                         cbind( model.matrix(~ . - 1, 
@@ -19,13 +19,13 @@ lm_lw <- lm(y_lw~.,
                                train_data %>% 
                                  filter(y_lw > 0) %>% select(Jahr, VS_kat, Alter_kat, qm_kat))))
 
-
+# Logistische Regression für Null-Aufwände
 logit_lw <-glm(x_lw ~.,
                       data=logit_data%>%
                         select(-c(x_feuer, x_sturm, x_el)),
                       family=binomial)
 
-
+#andere Gefahren analog
 # Sturm
 
 lm_sturm <- lm(y_sturm~.,
