@@ -1,5 +1,5 @@
 
-#MixNorm-Verteilung
+# MixNorm-Verteilung
 
 f_LogS_MixNorm<-function(y, a, mean, sd) {
   if (a < 0 || a > 1) {
@@ -203,7 +203,7 @@ LogS_Mixnorm_GF_lw  <- mean(trim=1/nrow(test_features), x= mapply(f_LogS_MixNorm
 
 
 
-# Komponenten
+# MixNorm Komponenten
 
 
 LogS_Bernoulli_NN_MixNorm_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli,
