@@ -1,3 +1,4 @@
+#data_sim wie im MixNorm-Netz
 
 q90_lw <-quantile(data_sim%>% filter(y_lw>0)%>% pull(y_lw), 0.9)
 q90_sturm <-quantile(data_sim%>% filter(y_sturm>0)%>% pull(y_sturm), 0.9)
@@ -31,13 +32,13 @@ train_data_extremes<- data_extremes %>% anti_join(test_data_extremes)
 train_features_extremes<- train_data_extremes%>% select(-c(excess_feuer,excess_lw,excess_el,excess_sturm, SchNr))
 train_Y_extremes<- train_data_extremes%>% select(c(excess_feuer,excess_lw,excess_el,excess_sturm)) 
 
-
+# globaler fit der GPD-Verteilung, um xi festzulegen
 fit_gpd_lw <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_lw>0)%>% pull(excess_lw) )
 fit_gpd_sturm <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_sturm>0)%>% pull(excess_sturm) )
 fit_gpd_feuer <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_feuer>0)%>% pull(excess_feuer) )
 fit_gpd_el <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_el>0)%>% pull(excess_el) )
 
-
+#Mischverteilung mit konstantem xi definieren
 dist_dir_gpd_lw<-dist_mixture(dists = list(dist_dirac(0), dist_genpareto1(u=0, sigma=NULL, xi=fit_gpd_lw$params$xi)))
 dist_dir_gpd_sturm<-dist_mixture(dists = list(dist_dirac(0), dist_genpareto1(u=0, sigma=NULL, xi=fit_gpd_sturm$params$xi)))
 dist_dir_gpd_feuer<-dist_mixture(dists = list(dist_dirac(0), dist_genpareto1(u=0, sigma=NULL, xi=fit_gpd_feuer$params$xi)))
