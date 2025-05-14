@@ -207,5 +207,5 @@ fit_nn_mixgpd_lw  <- fit(nn_pareto_lw_num$model,
 
 plot_fit_nn_mixgpd_lw  <- plot(fit_nn_mixgpd_lw)
 
-pred_params_pareto_lw_num_lr1000 <- predict(nn_pareto_lw_num, input_test_mixgpd)
+pred_params_nn_mixgpd_lw <- predict(nn_pareto_lw_num, input_test_mixgpd)
 
