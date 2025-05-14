@@ -1,4 +1,4 @@
-#Datensatz simulieren, ohne Korrelationen
+# ein Datensatz, der ähnliche Verteilungen aufweist, aber Abhängigkeiten zwischen Variablen nicht berücksichtigt
 n_sample <- 100000
 
 set.seed(111)
@@ -263,16 +263,16 @@ nn_model_lw <- tf_compile_model(
   truncation = FALSE
 )
 
-# Training
+# Training: hier wird die Zielvariable definiert, ersetze y_lw mit den anderen Zielgrößen, um die anderen Gefahrenmodelle zu erhalten
 fit_nn_lw <- fit(nn_model_lw$model,
                                x = input_train,
                                y = k_matrix(as_trunc_obs(as.numeric(unlist(train_Y$y_lw)))),
                                epochs = 600L,
-                               batch_size = 11563L,
+                               batch_size = round(nrow(train_features)/100),
                                shuffle = FALSE,
                                validation_split=0.2,
                                view_metrics=FALSE)
-
+# Verlauf der Trainingsverluste
 plot_fit_nn_lw <- plot(fit_nn_lw)
 
 # Parametervorhersagen auf Testdaten
