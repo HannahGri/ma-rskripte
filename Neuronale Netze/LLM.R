@@ -1,4 +1,6 @@
-# Schadenaufwände binär kodieren für logistissche Regression
+# LLM (Logistisch-Lineares Modell) als Vergleichsmodell, trainiert auf denselben Trainingsdaten wie das neuronale Netz
+
+# Schadenaufwände binär kodieren für logistische Regression
 logit_data <- train_data %>% mutate(x_feuer = ifelse(y_feuer==0,1,0),
                                    x_lw = ifelse(y_lw==0,1,0),
                                    x_sturm = ifelse(y_sturm==0,1,0),
