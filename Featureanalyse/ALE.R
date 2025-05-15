@@ -1,7 +1,7 @@
 
 library(iml)
 
-# VS, Alter, Fläche, HGK, SGK werden in der Reihenfolge sortiert
+# VS, Alter, Fläche, HGK, SGK werden in der Reihenfolge behalten
 
 predictor_lw <- Predictor$new(model=nn_model_lw$model, 
                               data = train_features %>%mutate(VS_kat=factor(VS_kat,ordered=TRUE),
