@@ -11,12 +11,15 @@ Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur
 Die Reihenfolge der Funktionen lautet
 
 - Datensimulation
+  
       - Aufteilung Test- und Trainingsdaten
       - Korrelation
 - Neuronaler Netze
+  
       - Architektur und Training anhand des Beispiels mit Datensimulation
       - Vorhersagen auf den Testdaten
 - Logistisch-Lineares Modell
+  
       - Aufbau und Training
       - Vorhersagen auf den Testdaten
 - Scoring-Funktionen
