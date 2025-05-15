@@ -8,7 +8,7 @@ Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur
 
 ## Inhalte
 
-Die Reihenfolge der Funktionen lautet
+Der Ablauf der Berechnungen ist wie folgt strukturiert:
 
 - Datensimulation
   - Aufteilung Test- und Trainingsdaten
