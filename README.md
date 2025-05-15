@@ -11,11 +11,21 @@ Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur
 Die Reihenfolge der Funktionen lautet
 
 - Datensimulation
-    - Test und Trainingsdaten
-- Aufbau neuronaler Netze (und Vorhersagen auf Testdaten)
-- Konstruktion des Logistisch-Linearen Modells (und Vorhersagen auf Testdaten)
-- Implementierung von Scoring-Funktionen (LogS, CRPS)
+      - Aufteilung Test- und Trainingsdaten
+      - Korrelation
+- Neuronaler Netze
+      - Architektur und Training anhand des Beispiels mit Datensimulation
+      - Vorhersagen auf den Testdaten
+- Logistisch-Lineares Modell
+      - Aufbau und Training
+      - Vorhersagen auf den Testdaten
+- Scoring-Funktionen
+      - Implementierung Logarithmischer Score (LogS) und Continuous Ranked Probability Score (CRPS)
+      - Berechnung mit den Beispielsvorhersagen der trainierten Modelle
 - Methoden zur Featureanalyse
+      - Permutation Feature Importance (PFI): Implementierung und Beispiel
+      - Partial Dependence Plots (PDP): Implementierung und Beispiel
+      - Accumulated Local Effects (ALE): Anwendung mithilfe iml
 
 
 ## Pakete
