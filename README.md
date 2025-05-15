@@ -13,7 +13,7 @@ Der Ablauf der Berechnungen ist wie folgt strukturiert:
 - Datensimulation
   - Aufteilung Test- und Trainingsdaten
   - Korrelation
-- Neuronaler Netze
+- Neuronale Netze
   - Architektur und Training anhand des Beispiels mit Datensimulation
   - Vorhersagen auf den Testdaten
 - Logistisch-Lineares Modell
