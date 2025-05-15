@@ -7,7 +7,7 @@ Diese Daten dienen lediglich zum Ausführen der Skripte und zur Vorstellung der 
 
 Enthalten sind:
 
-- Datensimulation
+- Datensimulation mit der Struktur der verwendeten Daten
 - Konstruktion der neuronalen Netze
 - Konstruktion des Logistisch-Linearen Modells
 - Implementierung von Scoring-Funktionen (LogS, CRPS)
