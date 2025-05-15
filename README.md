@@ -1,16 +1,20 @@
 # RSkripte_Masterarbeit
 
-In diesem Projekt stelle ich eine Übersicht der R-Skripte zur Verfügung, mit denen die Berechnungen und Analysen in der Arbeit durchgeführt wurden.
+Dieses Projekt enthält die R-Skripte, mit denen die Berechnungen und Analysen im Rahmen meiner Masterarbeit durchgeführt wurden.
 
-Dazu werden Daten simuliert, die ähnliche Verteilungen wie in den Originaldaten aufweisen, jedoch zufällig ohne jegliche Korrelationen zwischen Variablen erzeugt werden.
-Diese Daten dienen lediglich zum Ausführen der Skripte und zur Vorstellung der Codestruktur. Die Ergebnisse liefern keine Interpretationen der Ursprungsdaten.
+Zur Ausführung der Skripte werden simulierte Daten verwendet. Diese orientieren sich in ihrer Struktur und Verteilung an den Originaldaten, enthalten jedoch keinerlei Korrelationen zwischen den Variablen. Es bestehen keine Zusammenhänge zwischen Kovariablen und Zielvariablen, sodass die Modelle keine realen Beziehungen erlernen können. 
+Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur Interpretation gedacht.
 
-Enthalten sind:
+
+## Inhalte
 
 - Datensimulation mit der Struktur der verwendeten Daten
 - Konstruktion der neuronalen Netze
 - Konstruktion des Logistisch-Linearen Modells
 - Implementierung von Scoring-Funktionen (LogS, CRPS)
 - Methoden der Featureanalyse
-  
+
+
+
+## Pakete
 Alle verwendeten Pakete sind im Skript `Pakete.R` aufgeführt.
