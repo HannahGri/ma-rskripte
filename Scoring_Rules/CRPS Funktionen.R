@@ -46,7 +46,7 @@ f_CRPS_MixNorm_Exz_stetig <- function(y, mean, sd, quantile) {
 }
 
 
-
+# geschlossene Formeln für CRPS
 
 f_CRPS_MixNorm<-function(y, a, mean, sd) {
   a*abs(y) +(1-a)*sd*( (y-mean)/sd * (2*pnorm((y-mean)/sd)-1) + 2* dnorm((y-mean)/sd) )-
@@ -80,6 +80,7 @@ f_CRPS_Bernoulli_MixNorm_Exz <-function(y,a,mean, sd, u) {
 
 
 
+#Beispiel mit Gefahr Leitungswasser 
 
 data_predictions <- test_data %>%
   mutate(x_lw= ifelse(y_lw==0, 0, 1),
