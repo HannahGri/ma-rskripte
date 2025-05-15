@@ -1,3 +1,5 @@
+
+# Integralform für ExzessMixNorm
 f_CRPS_MixNorm_Exz<- function(y, a, mean, sd, quantile) {
   if (quantile<1) {
     stop(" quantile sollte >=1 sein")
@@ -48,6 +50,7 @@ f_CRPS_MixNorm_Exz_stetig <- function(y, mean, sd, quantile) {
 
 # geschlossene Formeln für CRPS
 
+# MixNorm
 f_CRPS_MixNorm<-function(y, a, mean, sd) {
   a*abs(y) +(1-a)*sd*( (y-mean)/sd * (2*pnorm((y-mean)/sd)-1) + 2* dnorm((y-mean)/sd) )-
     a*(1-a)* ( 2*sd*dnorm(mean/sd) + mean*(2*pnorm(mean/sd)-1) )-
@@ -59,6 +62,7 @@ f_CRPS_MixNorm_stetig <-function(y, mean, sd) { #CRPS für Normalverteilung
   return(sd*(u*(2* pnorm(u,mean=0, sd=1) -1) + 2*dnorm(u, mean=0, sd=1) - 1/sqrt(pi)))
 }
 
+# MixGPD
 f_CRPS_MixGPD_stetig<-function(y, sigma, xi) { #M = 0
   
   return(sigma*(abs(y)/sigma - 2/(1-xi) *(1-(1-reservr::pgpd(y/sigma, u=0, sigmau=1, xi=xi))^(1-xi))+1/(2-xi)))
@@ -68,6 +72,7 @@ f_CRPS_MixGPD <- function(y, a, sigma, xi) {
   return(sigma*(abs(y)/sigma - 2*(1-a)/(1-xi) *(1-(1-reservr::pgpd(y/sigma, u=0, sigmau=1, xi=xi))^(1-xi))+(1-a)^2/(2-xi)))
 }
 
+# Bernoulli
 f_CRPS_Bernoulli<-function(y,a) {
   a*y + (1-y)*(1-a) - a*(1-a)
 }
