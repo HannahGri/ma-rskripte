@@ -5,7 +5,7 @@
 n_sample <- 100000
 
 set.seed(111)
-Jahr_sim <- sample(2014:2023 , size = n_sample, replace = TRUE, prob = as.numeric(prop.table(table(df_data$Jahr))))
+Jahr_sim <- sample(2014:2023 , size = n_sample, replace = TRUE, prob = seq(0.07, 0.16, length.out=10)/sum(seq(0.07, 0.16, length.out=10)))
 HGK_sim <- sample(0:4 , size = n_sample, replace = TRUE, prob = c(0.04, 0.87, 0.07,0.01, 0.01))
 SGK_sim <- sample(0:3 , size = n_sample, replace = TRUE, prob = c(0.31, 0.16, 0.46, 0.07))
 Betr_sim <- sample(c(00000, 00051, 00052, 00053, 00055, 00059) , size = n_sample, replace = TRUE, prob = c(0.002, 0.03, 0.03, 0.8, 0.128, 0.01))
