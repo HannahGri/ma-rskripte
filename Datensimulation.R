@@ -1,4 +1,4 @@
-
+# simulierte Datengröße
 n_sample <- 100000
 
 set.seed(111)
