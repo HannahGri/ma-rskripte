@@ -94,45 +94,45 @@ inputs <- list(
 )
 
 embedding <- list(
-  layer_embedding(inputs$Betr, input_dim = nlevels(df_data$Betr), output_dim = 1) %>%  
+  layer_embedding(inputs$Betr, input_dim = nlevels(data_sim$Betr), output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$Jahr, input_dim =  max(df_data$Jahr)+1, output_dim = 1) %>%  
+  layer_embedding(inputs$Jahr, input_dim =  max(data_sim$Jahr)+1, output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$HGK, input_dim = nlevels(df_data$HGK), output_dim = 1) %>%   
+  layer_embedding(inputs$HGK, input_dim = nlevels(data_sim$HGK), output_dim = 1) %>%   
     layer_flatten(),   
-  layer_embedding(inputs$SGK, input_dim = nlevels(df_data$SGK), output_dim = 1) %>% 
+  layer_embedding(inputs$SGK, input_dim = nlevels(data_sim$SGK), output_dim = 1) %>% 
     layer_flatten(),
-  layer_embedding(inputs$Alter_kat, input_dim = max(df_data$Alter_kat)+1, output_dim = 1) %>%   
+  layer_embedding(inputs$Alter_kat, input_dim = max(data_sim$Alter_kat)+1, output_dim = 1) %>%   
     layer_flatten(),   
-  layer_embedding(inputs$VS_kat, input_dim = max(df_data$VS_kat)+1, output_dim = 1) %>%  
+  layer_embedding(inputs$VS_kat, input_dim = max(data_sim$VS_kat)+1, output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$qm_kat, input_dim = max(df_data$qm_kat)+1, output_dim = 1) %>%  
+  layer_embedding(inputs$qm_kat, input_dim = max(data_sim$qm_kat)+1, output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$Vorschaden_feuer, input_dim = nlevels(df_data$Vorschaden_feuer), output_dim = 1) %>%  
+  layer_embedding(inputs$Vorschaden_feuer, input_dim = nlevels(data_sim$Vorschaden_feuer), output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$Vorschaden_lw, input_dim = nlevels(df_data$Vorschaden_lw), output_dim = 1) %>%  
+  layer_embedding(inputs$Vorschaden_lw, input_dim = nlevels(data_sim$Vorschaden_lw), output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$Vorschaden_sturm, input_dim = nlevels(df_data$Vorschaden_sturm), output_dim = 1) %>%  
+  layer_embedding(inputs$Vorschaden_sturm, input_dim = nlevels(data_sim$Vorschaden_sturm), output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$Vorschaden_el, input_dim = nlevels(df_data$Vorschaden_el), output_dim = 1) %>%  
+  layer_embedding(inputs$Vorschaden_el, input_dim = nlevels(data_sim$Vorschaden_el), output_dim = 1) %>%  
     layer_flatten(),
-  layer_embedding(inputs$BAKL, input_dim = nlevels(df_data$BAKL), output_dim = 1) %>%  
+  layer_embedding(inputs$BAKL, input_dim = nlevels(data_sim$BAKL), output_dim = 1) %>%  
     layer_flatten(),   
-  layer_embedding(inputs$AVB, input_dim = nlevels(df_data$AVB), output_dim = 1) %>% 
+  layer_embedding(inputs$AVB, input_dim = nlevels(data_sim$AVB), output_dim = 1) %>% 
     layer_flatten(),
-  layer_embedding(inputs$UVVZ, input_dim = nlevels(df_data$UVVZ), output_dim = 1) %>%  
+  layer_embedding(inputs$UVVZ, input_dim = nlevels(data_sim$UVVZ), output_dim = 1) %>%  
     layer_flatten(),   
-  layer_embedding(inputs$Rohbau, input_dim = nlevels(df_data$Rohbau), output_dim = 1) %>%   
+  layer_embedding(inputs$Rohbau, input_dim = nlevels(data_sim$Rohbau), output_dim = 1) %>%   
     layer_flatten(),
-  layer_embedding(inputs$Feu, input_dim = nlevels(df_data$Feu), output_dim = 1) %>%   
+  layer_embedding(inputs$Feu, input_dim = nlevels(data_sim$Feu), output_dim = 1) %>%   
     layer_flatten(),   
-  layer_embedding(inputs$LW, input_dim = nlevels(df_data$LW), output_dim = 1) %>% 
+  layer_embedding(inputs$LW, input_dim = nlevels(data_sim$LW), output_dim = 1) %>% 
     layer_flatten(),
-  layer_embedding(inputs$ST, input_dim = nlevels(df_data$ST), output_dim = 1) %>%  
+  layer_embedding(inputs$ST, input_dim = nlevels(data_sim$ST), output_dim = 1) %>%  
     layer_flatten(),   
-  layer_embedding(inputs$EL, input_dim = nlevels(df_data$EL), output_dim = 1) %>% 
+  layer_embedding(inputs$EL, input_dim = nlevels(data_sim$EL), output_dim = 1) %>% 
     layer_flatten(),
-  layer_embedding(inputs$gew, input_dim = nlevels(df_data$gew), output_dim = 1) %>%  
+  layer_embedding(inputs$gew, input_dim = nlevels(data_sim$gew), output_dim = 1) %>%  
     layer_flatten()
 )
 
