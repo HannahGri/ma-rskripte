@@ -1,4 +1,4 @@
-# RSkripte_Masterarbeit
+# Übersicht der R-Skripte
 
 Dieses Projekt enthält die R-Skripte, mit denen die Berechnungen und Analysen im Rahmen meiner Masterarbeit durchgeführt wurden.
 
