@@ -8,12 +8,14 @@ Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur
 
 ## Inhalte
 
-- Datensimulation 
-- Aufbau neuronaler Netze
-- Konstruktion des Logistisch-Linearen Modells
+Die Reihenfolge der Funktionen lautet
+
+- Datensimulation
+    - Test und Trainingsdaten
+- Aufbau neuronaler Netze (und Vorhersagen auf Testdaten)
+- Konstruktion des Logistisch-Linearen Modells (und Vorhersagen auf Testdaten)
 - Implementierung von Scoring-Funktionen (LogS, CRPS)
 - Methoden zur Featureanalyse
-
 
 
 ## Pakete
