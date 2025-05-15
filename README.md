@@ -25,7 +25,7 @@ Die Reihenfolge der Funktionen lautet
 - Methoden zur Featureanalyse
       - Permutation Feature Importance (PFI): Implementierung und Beispiel
       - Partial Dependence Plots (PDP): Implementierung und Beispiel
-      - Accumulated Local Effects (ALE): Anwendung mithilfe iml
+      - Accumulated Local Effects (ALE): Anwendung mithilfe des Pakets `iml`
 
 
 ## Pakete
