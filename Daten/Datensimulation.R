@@ -1,3 +1,6 @@
+
+# Abhängigkeiten zwischen Variablen (inklusive Zielgröße) werden bei der Simulation nicht erzeugt
+
 # simulierte Datengröße
 n_sample <- 100000
 
