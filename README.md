@@ -8,11 +8,11 @@ Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur
 
 ## Inhalte
 
-- Datensimulation mit der Struktur der verwendeten Daten
-- Konstruktion der neuronalen Netze
+- Datensimulation 
+- Aufbau neuronaler Netze
 - Konstruktion des Logistisch-Linearen Modells
 - Implementierung von Scoring-Funktionen (LogS, CRPS)
-- Methoden der Featureanalyse
+- Methoden zur Featureanalyse
 
 
 
