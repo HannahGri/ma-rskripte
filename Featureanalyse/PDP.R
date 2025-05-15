@@ -60,11 +60,61 @@ f_pd <- function(model, data, feature) {
 
 
 
-pd_betr_lw <- f_pd(nn_model_lw, train_features, feature="Betr")
+FI_PD_betr_lw <- f_pd(nn_model_lw, train_features, feature="Betr")
 
-pd_Jahr_lw <- f_pd(nn_model_lw, train_features, feature="Jahr")
+FI_PD_Jahr_lw <- f_pd(nn_model_lw, train_features, feature="Jahr")
 
-pd_VS_lw <- f_pd(nn_model_lw, train_features, feature="VS_kat")
+FI_PD_VS_lw <- f_pd(nn_model_lw, train_features, feature="VS_kat")
 
+
+#Plot Betriebsart
+ggplot(FI_PD_betr_lw, aes(x = feature_value, y = a, group = 1)) +
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = NULL, y = NULL) +
+ggplot(FI_PD_betr_lw, aes(x = feature_value, y = mean, group = 1)) +
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = NULL, y = NULL) +
+ggplot(FI_PD_betr_lw, aes(x = feature_value, y = sd, group = 1))+
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = "Betriebsart", y = NULL) +
+plot_layout(ncol=1)
+
+
+# Plot Jahr
+ggplot(FI_PD_Jahr_lw, aes(x = feature_value, y = a, group = 1)) +
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = NULL, y = NULL) +
+ggplot(FI_PD_Jahr_lw, aes(x = feature_value, y = mean, group = 1)) +
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = NULL, y = NULL) +
+ggplot(FI_PD_Jahr_lw, aes(x = feature_value, y = sd, group = 1))+
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = "Jahr", y = NULL) +
+plot_layout(ncol=1)
+
+
+#Plot Versicherungssumme
+ggplot(FI_PD_VS_lw, aes(x = feature_value, y = a, group = 1)) +
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_x_continuous(breaks= seq(0,53, by=5))+
+ggplot(FI_PD_VS_lw, aes(x = feature_value, y = mean, group = 1)) +
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_x_continuous(breaks= seq(0,53, by=5))+
+ggplot(FI_PD_VS_lw, aes(x = feature_value, y = sd, group = 1))+
+  geom_point(alpha = 1, size = 0.7) +
+  geom_line()+
+  labs(title = NULL, x = "VS (kateg.)", y = NULL) +
+  scale_x_continuous(breaks= seq(0,53, by=5))+
+  plot_layout(ncol=1)
 
 
