@@ -67,7 +67,7 @@ data_sim <- tibble(
 )  %>% mutate(
   across(-c(y_feuer, y_lw, y_sturm, y_el,
             VS_kat,Alter_kat, qm_kat, Jahr), as.factor)) %>%
-  mutate(Nr = (1:n_sample))
+  mutate(Nr = (1:n_sample)) # Nummer zuordnen, damit jeder Datensatz als eindeutig aufgefasst wird
 
   
 
