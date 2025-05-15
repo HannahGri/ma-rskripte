@@ -196,7 +196,7 @@ nn_mixgpd_model_lw  <- tf_compile_model(
 )
 
 
-fit_nn_mixgpd_lw  <- fit(nn_pareto_lw_num$model,
+fit_nn_mixgpd_lw  <- fit(nn_mixgpd_model_lw$model,
                                 x = input_train_mixgpd,
                                 y = k_matrix(as_trunc_obs(as.numeric(unlist(train_Y_extremes$excess_lw)))),
                                 epochs = 600L,
@@ -207,5 +207,5 @@ fit_nn_mixgpd_lw  <- fit(nn_pareto_lw_num$model,
 
 plot_fit_nn_mixgpd_lw  <- plot(fit_nn_mixgpd_lw)
 
-pred_params_nn_mixgpd_lw <- predict(nn_pareto_lw_num, input_test_mixgpd)
+pred_params_nn_mixgpd_lw <- predict(nn_mixgpd_model_lw, input_test_mixgpd)
 
