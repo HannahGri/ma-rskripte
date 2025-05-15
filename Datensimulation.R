@@ -38,7 +38,7 @@ y_el_sim <-  dist_mixture(dists = list(dist_dirac(0),
                              probs = list(0.997,0.003))$sample(n_sample)
 
 
-
+# Daten zusammenführen
 data_sim <- tibble(
   Jahr = Jahr_sim,
   HGK = HGK_sim,
@@ -71,6 +71,7 @@ data_sim <- tibble(
 
   
 
+# Aufteilung in Test- und Trainingsdaten (20 - 80) 
 set.seed(80)
 tf$random$set_seed(80)
 py_set_seed(80)
@@ -94,4 +95,3 @@ train_features<- train_data%>% select(-c(y_feuer,
                                          y_sturm, y_el,
                                          Nr))
 train_Y<- train_data%>% select(y_feuer, y_lw, y_sturm, y_el) 
-
