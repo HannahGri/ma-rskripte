@@ -1,10 +1,10 @@
 # Python-Umgebung einrichten
 library(reticulate)
 
-virtualenv_create("r-tf-env_test", python = "3.10")
-virtualenv_install("r-tf-env_test", packages = c("tensorflow==2.18", "keras==3.6"))
+virtualenv_create("py_env", python = "3.10")
+virtualenv_install("py_env", packages = c("tensorflow==2.18", "keras==3.6"))
 
-use_virtualenv("r-tf-env_test", required = TRUE) 
+use_virtualenv("py_env") 
 tf<-import("tensorflow")
 
 library(tensorflow)
