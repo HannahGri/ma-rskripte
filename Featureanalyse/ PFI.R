@@ -45,7 +45,7 @@ f_pfi_nn_lw <- function(i, n_perm) {
     #Vorhersagen auf permutierte Testdaten
     pred_params_perm <- predict(nn_model_lw, input_test_perm)
 
-    loss_perm <- - 1/nrow(test_Y)*sum(log(pmin(1-10^-15,pred_params_perm$probs[[1]])*ifelse(test_Y$y_lw==0,1,0)+
+    loss_perm <- - mean(log(pmin(1-10^-15,pred_params_perm$probs[[1]])*ifelse(test_Y$y_lw==0,1,0)+
                                             ifelse(test_Y$y_lw==0,0,1)*(1-pmin(1-10^-15,pred_params_perm$probs[[1]]))*
                                             pmax(10^-15,dnorm(test_Y$y_lw, 
                                                   mean = pred_params_perm$dists[[2]]$mean,
