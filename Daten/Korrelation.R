@@ -1,6 +1,4 @@
 
-library(rcompanion)
-
 data_features <- data_sim %>% select(-c(y_lw, y_el, y_sturm,y_feuer, Nr))
 n_features <- ncol(data_features)
 
