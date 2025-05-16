@@ -1,3 +1,4 @@
+# pmin() und pmax() sorgen dafür, extrem kleine Dichtewerte zu begrenzen, damit die Verlustwerte keine undefinierten Werte annehmen
 loss_orig_nn_lw <- - mean(log(pmin(1-10^-15,pred_params_nn_lw$probs[[1]])*ifelse(test_Y$y_lw==0,1,0)+
                        ifelse(test_Y$y_lw==0,0,1)*(1-pmin(1-10^-15,pred_params_nn_lw$probs[[1]]))*pmax(10^-15,dnorm(test_Y$y_lw, 
                                                                                                         mean = pred_params_nn_lw$dists[[2]]$mean,
