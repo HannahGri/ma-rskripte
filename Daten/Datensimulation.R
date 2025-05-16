@@ -1,8 +1,8 @@
 
 # Abhängigkeiten zwischen Variablen (inklusive Zielgröße) werden bei der Simulation nicht erzeugt
 
-# simulierte Datengröße
-n_sample <- 100000
+# simulierte, kleinere Datengröße
+n_sample <- 10000  
 
 Jahr_sim <- sample(2014:2023 , size = n_sample, replace = TRUE, prob = seq(0.07, 0.16, length.out=10)/sum(seq(0.07, 0.16, length.out=10)))
 HGK_sim <- sample(0:4 , size = n_sample, replace = TRUE, prob = c(0.04, 0.87, 0.07,0.01, 0.01))
