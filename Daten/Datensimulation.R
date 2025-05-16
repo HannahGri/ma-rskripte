@@ -76,8 +76,6 @@ data_sim <- tibble(
 
 # Aufteilung in Test- und Trainingsdaten (20 - 80) 
 set.seed(80)
-tf$random$set_seed(80)
-py_set_seed(80)
 
 test_data<- data_sim%>%
   group_by(Jahr,qm_kat, VS_kat ) %>%
