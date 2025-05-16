@@ -191,7 +191,7 @@ nn_mixgpd_model_lw  <- tf_compile_model(
   truncation = FALSE
 )
 
-
+# Training des Modells
 fit_nn_mixgpd_lw  <- fit(nn_mixgpd_model_lw$model,
                                 x = input_train_mixgpd,
                                 y = k_matrix(as_trunc_obs(as.numeric(unlist(train_Y_extremes$excess_lw)))),
