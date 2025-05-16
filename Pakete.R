@@ -22,5 +22,5 @@ library(ggplot2) # 3.5.1
 library(patchwork) # 1.2.0
 library(VGAM) # 1.1-11
 library(iml) # 0.11.3
-
+library(rcompanion) # 2.4.36
 
