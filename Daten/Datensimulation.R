@@ -4,7 +4,6 @@
 # simulierte Datengröße
 n_sample <- 100000
 
-set.seed(111)
 Jahr_sim <- sample(2014:2023 , size = n_sample, replace = TRUE, prob = seq(0.07, 0.16, length.out=10)/sum(seq(0.07, 0.16, length.out=10)))
 HGK_sim <- sample(0:4 , size = n_sample, replace = TRUE, prob = c(0.04, 0.87, 0.07,0.01, 0.01))
 SGK_sim <- sample(0:3 , size = n_sample, replace = TRUE, prob = c(0.31, 0.16, 0.46, 0.07))
