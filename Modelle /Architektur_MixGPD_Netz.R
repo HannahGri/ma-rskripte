@@ -1,10 +1,13 @@
-#data_sim wie im MixNorm-Netz
+# data_sim wie im MixNorm-Netz
 
 q90_lw <-quantile(data_sim%>% filter(y_lw>0)%>% pull(y_lw), 0.9)
 q90_sturm <-quantile(data_sim%>% filter(y_sturm>0)%>% pull(y_sturm), 0.9)
 q90_feuer <-quantile(data_sim%>% filter(y_feuer>0)%>% pull(y_feuer), 0.9)
 q90_el <-quantile(data_sim%>% filter(y_el>0)%>% pull(y_el), 0.9)
 
+
+# Betrachte Aufwände über einen Schwellenwert und setze darunter liegende Werte auf 0
+# Transformiere auf Ursprungsgröße zurück
 
 data_extremes <- data_sim%>% mutate(excess_feuer=ifelse(y_feuer>q90_feuer, 10^y_feuer-10^q90_feuer,0),
                                                 excess_lw=ifelse(y_lw>q90_lw, 10^y_lw-10^q90_lw,0),
@@ -13,7 +16,7 @@ data_extremes <- data_sim%>% mutate(excess_feuer=ifelse(y_feuer>q90_feuer, 10^y_
   select(-c(y_feuer, y_lw, y_sturm, y_el))
 
 
-
+# Test- und Trainingsdaten anpassen
 set.seed(80)
 
 test_data_extremes<- data_extremes %>%
@@ -36,7 +39,7 @@ fit_gpd_sturm <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_stu
 fit_gpd_feuer <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_feuer>0)%>% pull(excess_feuer) )
 fit_gpd_el <-fit(dist_genpareto1(u=0),train_data_extremes%>%filter(excess_el>0)%>% pull(excess_el) )
 
-#Mischverteilung mit konstantem xi definieren
+# Mischverteilung mit konstantem xi definieren
 dist_dir_gpd_lw<-dist_mixture(dists = list(dist_dirac(0), dist_genpareto1(u=0, sigma=NULL, xi=fit_gpd_lw$params$xi)))
 dist_dir_gpd_sturm<-dist_mixture(dists = list(dist_dirac(0), dist_genpareto1(u=0, sigma=NULL, xi=fit_gpd_sturm$params$xi)))
 dist_dir_gpd_feuer<-dist_mixture(dists = list(dist_dirac(0), dist_genpareto1(u=0, sigma=NULL, xi=fit_gpd_feuer$params$xi)))
@@ -47,6 +50,7 @@ global_fit_mixgpd_sturm <- fit_dist(dist_dir_gpd_sturm, train_Y_extremes$excess_
 global_fit_mixgpd_feuer <- fit_dist(dist_dir_gpd_feuer, train_Y_extremes$excess_feuer)
 global_fit_mixgpd_el <- fit_dist(dist_dir_gpd_el, train_Y_extremes$excess_el)
 
+# Input für neuronales Netz anpassen
 input_train_mixgpd <- list(
   Betr = k_constant(unclass(train_features_extremes$Betr)-1L),
   Jahr = k_constant(unclass(train_features_extremes$Jahr)),
@@ -94,7 +98,7 @@ input_test_mixgpd <- list(
 )
 
 
-# Modellarchitektur MixGPD-Netz
+# Modellarchitektur MixGPD-Netz, ähnlicher Aufbau wie MixNorm-Netz
 py_set_seed(11)
 
 inputs <- list(
@@ -163,8 +167,6 @@ embedding <- list(
   layer_embedding(inputs$gew, input_dim = nlevels(data_extremes$gew), output_dim = 1) %>%  
     layer_flatten()
 )
-
-
 
 
 combined <- layer_concatenate(embedding) %>%
