@@ -15,8 +15,6 @@ data_extremes <- data_sim%>% mutate(excess_feuer=ifelse(y_feuer>q90_feuer, 10^y_
 
 
 set.seed(80)
-tf$random$set_seed(80)
-py_set_seed(80)
 
 test_data_extremes<- data_extremes %>%
   group_by(Jahr,qm_kat, VS_kat) %>%
@@ -96,12 +94,8 @@ input_test_mixgpd <- list(
 )
 
 
-
-
-set.seed(11)
-tf$random$set_seed(11)
+# Modellarchitektur MixGPD-Netz
 py_set_seed(11)
-
 
 inputs <- list(
   Betr = layer_input(name = "Betr", dtype = "int32", shape = 1L),
