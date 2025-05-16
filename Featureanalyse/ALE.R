@@ -1,8 +1,6 @@
-
-library(iml)
+# Erstellung der ALE-Plots mit Paket iml
 
 # VS, Alter, Fläche, HGK, SGK werden in der Reihenfolge sortiert
-
 predictor_lw <- Predictor$new(model=nn_model_lw$model, 
                               data = train_features %>%mutate(VS_kat=factor(VS_kat,ordered=TRUE),
                                      Alter_kat=factor(Alter_kat,ordered=TRUE),
