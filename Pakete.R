@@ -1,20 +1,20 @@
-
-#Das hier klappt: python 3.10.0, tf 2.18.0, keras 3.6.0
+# Python-Umgebung einrichten
 library(reticulate)
 
-virtualenv_create("r-tf-env")
-virtualenv_install("r-tf-env", packages = c("tensorflow", "keras"))
+virtualenv_create("r-tf-env_test", python = "3.10")
+virtualenv_install("r-tf-env_test", packages = c("tensorflow==2.18", "keras==3.6"))
+
+use_virtualenv("r-tf-env_test", required = TRUE) 
+tf<-import("tensorflow")
 
 library(tensorflow)
 library(keras)
-
-use_virtualenv("r-tf-env", required = TRUE) 
-tf<-import("tensorflow")
 
 py_version() # 3.10
 keras$`__version__` # 3.6.0
 tf$`__version__` # 2.18.0
 
+#Pakete
 library(reservr) # 0.0.3
 library(tidymodels) # 2.15.0
 library(tibble) # 3.2.1
