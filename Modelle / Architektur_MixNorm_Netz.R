@@ -167,7 +167,7 @@ nn_model_lw <- tf_compile_model(
 fit_nn_lw <- fit(nn_model_lw$model,
                  x = input_train,
                  y = k_matrix(as_trunc_obs(as.numeric(unlist(train_Y$y_lw)))),
-                 epochs = 100L, # Epochenzahl bestimmt die Trainingsdauer
+                 epochs = 50L, # Epochenzahl bestimmt die Trainingsdauer
                  batch_size = round(nrow(train_features)/100),
                  shuffle = FALSE,
                  validation_split=0.2,
