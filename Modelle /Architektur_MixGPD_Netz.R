@@ -193,7 +193,7 @@ nn_mixgpd_model_lw  <- tf_compile_model(
 fit_nn_mixgpd_lw  <- fit(nn_mixgpd_model_lw$model,
                                 x = input_train_mixgpd,
                                 y = k_matrix(as_trunc_obs(as.numeric(unlist(train_Y_extremes$excess_lw)))),
-                                epochs = 600L,
+                                epochs = 100L, # Epochenanzahl bestimmt die Trainingsdauer
                                 batch_size = round(nrow(train_features_extremes)/100),
                                 shuffle = FALSE,
                                 validation_split=0.2,
