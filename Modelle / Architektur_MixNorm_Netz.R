@@ -65,10 +65,7 @@ input_test <- list(
 
 
 # Struktur des neuronalen Netzes für Leitungswasserschäden
-set.seed(11)
-tf$random$set_seed(11)
 py_set_seed(11)
-
 
 inputs <- list(
   Betr = layer_input(name = "Betr", dtype = "int32", shape = 1L),
