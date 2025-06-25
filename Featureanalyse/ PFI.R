@@ -101,10 +101,10 @@ f_pfi_llm_lw <- function(i, n_perm) {
 }
 
 
-# Berechnung mit 10 Permutationen
-PFI_nn_lw <- do.call(rbind,lapply(1:20, f_pfi_nn_lw, n_perm=10))
+# Berechnung mit 5 Permutationen
+PFI_nn_lw <- do.call(rbind,lapply(1:20, f_pfi_nn_lw, n_perm=5))
 
-PFI_llm_lw <- do.call(rbind,lapply(1:20, f_pfi_llm_lw, n_perm=10))
+PFI_llm_lw <- do.call(rbind,lapply(1:20, f_pfi_llm_lw, n_perm=5))
 
 PFI_mixnorm <- left_join(data.frame(PFI_nn_lw), data.frame(PFI_llm_lw), by="Feature") %>% mutate(Feature = names(test_features))
 
