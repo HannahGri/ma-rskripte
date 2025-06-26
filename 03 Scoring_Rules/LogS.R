@@ -390,3 +390,5 @@ logscore_ergebnisse <- tibble(
     LogS_Stetig_LLM_ExzMixNorm_lw/LogS_Stetig_GF_MixGPD_lw
   )
 )
+
+print(logscore_ergebnisse)
