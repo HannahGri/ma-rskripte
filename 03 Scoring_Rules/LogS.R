@@ -1,4 +1,3 @@
-
 # MixNorm-Verteilung
 
 f_LogS_MixNorm<-function(y, a, mean, sd) {
@@ -7,8 +6,8 @@ f_LogS_MixNorm<-function(y, a, mean, sd) {
   }
   
   a=pmin(1-10^-15,a)
-
- if (y == 0) {
+  
+  if (y == 0) {
     return(-log(a))
   } 
   else if (y != 0) {
@@ -62,7 +61,7 @@ f_LogS_MixNorm_Exz<-function(y, a, mean, sd, quantile) {
   
   a=pmin(1-10^-15,a)
   
-if (y== 0) {
+  if (y== 0) {
     return(-log(a+(1-a)*pnorm(log10(y+quantile), mean = mean, sd=sd)))
   } 
   
@@ -182,15 +181,15 @@ data_excess_predictions <- test_data_extremes %>%
 
 # MixNorm
 LogS_Mixnorm_NN_lw <- mean(trim=1/nrow(data_predictions), x= mapply(f_LogS_MixNorm,
-                                                                   data_predictions$y_lw,
-                                                                   data_predictions$a_nn_lw, 
-                                                                   data_predictions$mean_nn_lw, 
-                                                                   data_predictions$sd_nn_lw))
+                                                                    data_predictions$y_lw,
+                                                                    data_predictions$a_nn_lw, 
+                                                                    data_predictions$mean_nn_lw, 
+                                                                    data_predictions$sd_nn_lw))
 LogS_Mixnorm_LLM_lw  <- mean(trim=1/nrow(test_features), x= mapply(f_LogS_MixNorm,
-                                                                  data_predictions$y_lw,
-                                                                  data_predictions$a_llm_lw, 
-                                                                  data_predictions$mean_llm_lw, 
-                                                                  data_predictions$sd_gf_lw))
+                                                                   data_predictions$y_lw,
+                                                                   data_predictions$a_llm_lw, 
+                                                                   data_predictions$mean_llm_lw, 
+                                                                   data_predictions$sd_gf_lw))
 LogS_Mixnorm_GF_lw  <- mean(trim=1/nrow(test_features), x= mapply(f_LogS_MixNorm,
                                                                   data_predictions$y_lw,
                                                                   data_predictions$a_gf_lw, 
@@ -207,36 +206,36 @@ LogS_Mixnorm_GF_lw  <- mean(trim=1/nrow(test_features), x= mapply(f_LogS_MixNorm
 
 
 LogS_Bernoulli_NN_MixNorm_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli,
-                                                         data_predictions$x_lw,
-                                                         data_predictions$a_nn_lw 
+                                                                          data_predictions$x_lw,
+                                                                          data_predictions$a_nn_lw 
 ))
 
 LogS_Bernoulli_GF_MixNorm_lw  <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli,
-                                                         data_predictions$x_lw,
-                                                         data_predictions$a_gf_lw
+                                                                           data_predictions$x_lw,
+                                                                           data_predictions$a_gf_lw
 ))
 LogS_Bernoulli_LLM_MixNorm_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli,
-                                                          data_predictions$x_lw,
-                                                          data_predictions$a_llm_lw
+                                                                           data_predictions$x_lw,
+                                                                           data_predictions$a_llm_lw
 ))
 
 
 LogS_Stetig_NN_MixNorm_lw  <- mean(trim=1/nrow(data_predictions %>%filter(y_lw !=0)), x= mapply(f_LogS_MixNorm_stetig,
-                                                                                          data_predictions %>%filter(y_lw !=0) %>%pull(y_lw),
-                                                                                          (data_predictions %>%filter(y_lw !=0))$mean_nn_lw,
-                                                                                          (data_predictions %>%filter(y_lw !=0))$sd_nn_lw
+                                                                                                data_predictions %>%filter(y_lw !=0) %>%pull(y_lw),
+                                                                                                (data_predictions %>%filter(y_lw !=0))$mean_nn_lw,
+                                                                                                (data_predictions %>%filter(y_lw !=0))$sd_nn_lw
 ))
 
 LogS_Stetig_GF_MixNorm_lw <- mean(trim=1/nrow(data_predictions %>%filter(y_lw !=0)), x=mapply(f_LogS_MixNorm_stetig,
-                                                                                        data_predictions %>%filter(y_lw !=0) %>%pull(y_lw),
-                                                                                        (data_predictions %>%filter(y_lw !=0))$mean_gf_lw,
-                                                                                        (data_predictions %>%filter(y_lw !=0))$sd_gf_lw
+                                                                                              data_predictions %>%filter(y_lw !=0) %>%pull(y_lw),
+                                                                                              (data_predictions %>%filter(y_lw !=0))$mean_gf_lw,
+                                                                                              (data_predictions %>%filter(y_lw !=0))$sd_gf_lw
 ))
 
 LogS_Stetig_LLM_MixNorm_lw <- mean(trim=1/nrow(data_predictions %>%filter(y_lw !=0)), x=mapply(f_LogS_MixNorm_stetig,
-                                                                                          data_predictions %>%filter(y_lw !=0) %>%pull(y_lw),
-                                                                                          (data_predictions %>%filter(y_lw !=0))$mean_llm_lw,
-                                                                                          (data_predictions %>%filter(y_lw !=0))$sd_gf_lw
+                                                                                               data_predictions %>%filter(y_lw !=0) %>%pull(y_lw),
+                                                                                               (data_predictions %>%filter(y_lw !=0))$mean_llm_lw,
+                                                                                               (data_predictions %>%filter(y_lw !=0))$sd_gf_lw
 ))
 
 
@@ -250,16 +249,16 @@ LogS_MixGPD_NN_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_MixGPD,
                                                                data_excess_predictions$xi_gf_lw))
 
 LogS_MixGPD_GF_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_MixGPD,
-                                                                       data_excess_predictions$excess_lw,
-                                                                       data_excess_predictions$a_gf_gpd_lw,
-                                                                       data_excess_predictions$sigmau_gf_gpd_lw,
-                                                                       data_excess_predictions$xi_gf_lw))
+                                                               data_excess_predictions$excess_lw,
+                                                               data_excess_predictions$a_gf_gpd_lw,
+                                                               data_excess_predictions$sigmau_gf_gpd_lw,
+                                                               data_excess_predictions$xi_gf_lw))
 
 # MixGPD Komponenten
 LogS_Bernoulli_NN_MixGPD_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli,
-                                                                          data_excess_predictions%>%pull(x_lw),
-                                                                          (data_excess_predictions)$a_nn_gpd_lw
-          ))
+                                                                         data_excess_predictions%>%pull(x_lw),
+                                                                         (data_excess_predictions)$a_nn_gpd_lw
+))
 
 
 LogS_Bernoulli_GF_MixGPD_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli,
@@ -275,9 +274,9 @@ LogS_Stetig_NN_MixGPD_lw <- mean(trim=1/nrow(data_excess_predictions %>%filter(e
 ))
 
 LogS_Stetig_GF_MixGPD_lw <- mean(trim=1/nrow(data_excess_predictions %>%filter(excess_lw !=0)), x=mapply(f_LogS_MixGPD_stetig,
-                                                                                                       data_excess_predictions %>%filter(excess_lw !=0) %>%pull(excess_lw),
-                                                                                                       (data_excess_predictions %>%filter(excess_lw !=0))$sigmau_gf_gpd_lw,
-                                                                                                       (data_excess_predictions %>%filter(excess_lw !=0))$xi_gf_lw
+                                                                                                         data_excess_predictions %>%filter(excess_lw !=0) %>%pull(excess_lw),
+                                                                                                         (data_excess_predictions %>%filter(excess_lw !=0))$sigmau_gf_gpd_lw,
+                                                                                                         (data_excess_predictions %>%filter(excess_lw !=0))$xi_gf_lw
 ))
 
 
@@ -292,31 +291,38 @@ LogS_ExzMixNorm_NN_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_MixNor
                                                                    data_excess_predictions$sd_nn_lw,
                                                                    10^q90_lw))
 
+LogS_ExzMixNorm_LLM_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_MixNorm_Exz,
+                                                                   data_excess_predictions$excess_lw,
+                                                                   data_excess_predictions$a_llm_lw,
+                                                                   data_excess_predictions$mean_llm_lw,
+                                                                   data_excess_predictions$sd_gf_lw,
+                                                                   10^q90_lw))
+
 LogS_ExzMixNorm_GF_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_MixNorm_Exz,
-                                                                    data_excess_predictions$excess_lw,
-                                                                    data_excess_predictions$a_llm_lw,
-                                                                    data_excess_predictions$mean_llm_lw,
-                                                                    data_excess_predictions$sd_gf_lw,
-                                                                    10^q90_lw))
-  
+                                                                   data_excess_predictions$excess_lw,
+                                                                   data_excess_predictions$a_llm_lw,
+                                                                   data_excess_predictions$mean_llm_lw,
+                                                                   data_excess_predictions$sd_gf_lw,
+                                                                   10^q90_lw))
+
 
 # Exzess-MixNorm Komponenten
 LogS_Bernoulli_NN_ExzMixNorm_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli_Exz,
-                                                                              data_excess_predictions$x_lw,
-                                                                              data_excess_predictions$a_nn_lw,
-                                                                              data_excess_predictions$mean_nn_lw,
-                                                                              data_excess_predictions$sd_nn_lw,
-                                                                              10^q90_lw
-                                                                    
+                                                                             data_excess_predictions$x_lw,
+                                                                             data_excess_predictions$a_nn_lw,
+                                                                             data_excess_predictions$mean_nn_lw,
+                                                                             data_excess_predictions$sd_nn_lw,
+                                                                             10^q90_lw
+                                                                             
 ))
 
 LogS_Bernoulli_LLM_ExzMixNorm_lw <- mean(trim=1/nrow(test_features), x=mapply(f_LogS_Bernoulli_Exz,
-                                                             data_excess_predictions$x_lw,
-                                                             data_excess_predictions$a_llm_lw,
-                                                             data_excess_predictions$mean_llm_lw,
-                                                             data_excess_predictions$sd_gf_lw,
-                                                             10^q90_lw
-                                                            
+                                                                              data_excess_predictions$x_lw,
+                                                                              data_excess_predictions$a_llm_lw,
+                                                                              data_excess_predictions$mean_llm_lw,
+                                                                              data_excess_predictions$sd_gf_lw,
+                                                                              10^q90_lw
+                                                                              
 ))
 
 LogS_Stetig_NN_ExzMixNorm_lw <- mean(trim=1/nrow(data_excess_predictions %>%filter(excess_lw !=0)), x=mapply(f_LogS_MixNorm_Exz_stetig,
@@ -326,8 +332,61 @@ LogS_Stetig_NN_ExzMixNorm_lw <- mean(trim=1/nrow(data_excess_predictions %>%filt
                                                                                                              10^q90_lw
 ))
 LogS_Stetig_LLM_ExzMixNorm_lw <- mean(trim=1/nrow(data_excess_predictions %>%filter(excess_lw !=0)), x=mapply(f_LogS_MixNorm_Exz_stetig,
-                                                                                                             data_excess_predictions %>%filter(excess_lw !=0) %>%pull(excess_lw),
-                                                                                                             (data_excess_predictions %>%filter(excess_lw !=0))$mean_llm_lw,
-                                                                                                             (data_excess_predictions %>%filter(excess_lw !=0))$sd_gf_lw,
-                                                                                                             10^q90_lw
+                                                                                                              data_excess_predictions %>%filter(excess_lw !=0) %>%pull(excess_lw),
+                                                                                                              (data_excess_predictions %>%filter(excess_lw !=0))$mean_llm_lw,
+                                                                                                              (data_excess_predictions %>%filter(excess_lw !=0))$sd_gf_lw,
+                                                                                                              10^q90_lw
 ))
+
+
+# Ergebnisse mit Vergleich zum globalen Fit: Je niedriger, desto besser. Werte < 1 deuten auf bessere Vorhersagen als die konstanten Parameter des globalen Fits hin.
+
+logscore_ergebnisse <- tibble(
+  Modell = c(
+    # MixNormmodelle
+    "MixNorm - NN", 
+    "Bernoulli - NN",
+    "Stetig - NN",
+    
+    "MixNorm - LLM",
+    "Bernoulli - LLM",
+    "Stetig - LLM ",
+    
+    # Exzessmodelle
+    "MixGPD - NN",
+    "Bernoulli - NN (MixGPD)",
+    "Stetig - NN (MixGPD)",
+
+    "ExzMixNorm - NN", 
+    "Bernoulli - NN (ExzMixNorm)", 
+    "Stetig - NN (ExzMixNorm)",
+    
+    "ExzMixNorm - LLM",
+    "Bernoulli - LLM (ExzMixNorm)",
+    "Stetig - LLM (ExzMixNorm)"
+  ),
+ 
+  LogS_Wert = c(
+    # MixNormmodelle
+    LogS_Mixnorm_NN_lw/LogS_Mixnorm_GF_lw,
+    LogS_Bernoulli_NN_MixNorm_lw/LogS_Bernoulli_GF_MixNorm_lw,
+    LogS_Stetig_NN_MixNorm_lw/LogS_Stetig_GF_MixNorm_lw, 
+    
+    LogS_Mixnorm_LLM_lw/LogS_Mixnorm_GF_lw,
+    LogS_Bernoulli_LLM_MixNorm_lw/LogS_Bernoulli_GF_MixNorm_lw,
+    LogS_Stetig_LLM_MixNorm_lw/LogS_Stetig_GF_MixNorm_lw,
+    
+    # Exzessmodelle
+    LogS_MixGPD_NN_lw/ LogS_MixGPD_GF_lw,
+    LogS_Bernoulli_NN_MixGPD_lw/LogS_Bernoulli_GF_MixGPD_lw,
+    LogS_Stetig_NN_MixGPD_lw/LogS_Stetig_GF_MixGPD_lw,
+  
+    LogS_ExzMixNorm_NN_lw/LogS_ExzMixNorm_GF_lw,
+    LogS_Bernoulli_NN_ExzMixNorm_lw/LogS_Bernoulli_GF_MixGPD_lw, 
+    LogS_Stetig_NN_ExzMixNorm_lw/LogS_Stetig_GF_MixGPD_lw,
+    
+    LogS_ExzMixNorm_LLM_lw/LogS_ExzMixNorm_GF_lw,
+    LogS_Bernoulli_LLM_ExzMixNorm_lw/LogS_Bernoulli_GF_MixGPD_lw,
+    LogS_Stetig_LLM_ExzMixNorm_lw/LogS_Stetig_GF_MixGPD_lw
+  )
+)
