@@ -173,6 +173,7 @@ fit_nn_lw <- fit(nn_model_lw$model,
                  validation_split=0.2,
                  view_metrics=FALSE)
 
+# Trainingsverlauf anzeigen
 plot_fit_nn_lw <- plot(fit_nn_lw)
 
 # Parametervorhersagen auf Testdaten
