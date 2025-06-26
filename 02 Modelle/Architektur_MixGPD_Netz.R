@@ -201,7 +201,9 @@ fit_nn_mixgpd_lw  <- fit(nn_mixgpd_model_lw$model,
                                 validation_split=0.2,
                                 view_metrics=FALSE)
 
+# Trainingsverlauf anzeigen
 plot_fit_nn_mixgpd_lw  <- plot(fit_nn_mixgpd_lw)
 
+#Parametervorhersagen
 pred_params_nn_mixgpd_lw <- predict(nn_mixgpd_model_lw, input_test_mixgpd)
 
