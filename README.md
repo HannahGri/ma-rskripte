@@ -2,19 +2,19 @@
 
 Dieses Projekt enthält die R-Skripte (R Version 4.3.1), mit denen die Berechnungen und Analysen im Rahmen meiner Masterarbeit durchgeführt wurden.
 
-Zur Ausführung der Skripte werden simulierte Daten verwendet. Diese orientieren sich in ihrer Struktur und Verteilung an den Originaldaten, enthalten jedoch keinerlei Korrelationen zwischen den Variablen. Es bestehen keine Zusammenhänge zwischen Kovariablen und Zielvariablen, sodass die Modelle keine realen Beziehungen erlernen können. 
-Sie dienen ausschließlich der Demonstration der Codestruktur und sind nicht zur Interpretation gedacht.
-
+Zur Ausführung der Skripte werden simulierte Daten verwendet. Diese orientieren sich näherungsweise in Struktur, Verteilung und Korrelation an den Originaldaten.
+Die simulierten Daten dienen der Veranschaulichung der Methoden und Codestrukturen.
 
 ## Inhalte
 
 Der Ablauf der Berechnungen ist wie folgt strukturiert:
 
 - Datensimulation
+  - Erzeugung von Kovariabeln und Zielvariablen mit Berücksichtigung von Korrelationen zwischen den Variablen   
   - Aufteilung Test- und Trainingsdaten
-  - Korrelation
+  - Korrelationsgrafik
 - Neuronale Netze
-  - Architektur und Training anhand des Beispiels mit Datensimulation
+  - Architektur und Training am Beispiels der simulierten Daten
   - Vorhersagen auf den Testdaten
 - Logistisch-Lineares Modell
   - Aufbau und Training
