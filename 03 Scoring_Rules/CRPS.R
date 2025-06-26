@@ -1,4 +1,3 @@
-
 # Integralform für ExzessMixNorm
 f_CRPS_MixNorm_Exz<- function(y, a, mean, sd, quantile) {
   if (quantile<1) {
@@ -238,6 +237,14 @@ CRPS_ExzMixNorm_NN_lw <- mean(trim=1/nrow(test_features), x=mapply(f_CRPS_MixNor
                                                                    data_excess_predictions$sd_nn_lw,
                                                                    10^q90_lw))
 
+
+CRPS_ExzMixNorm_LLM_lw <- mean(trim=1/nrow(test_features), x=mapply(f_CRPS_MixNorm_Exz,
+                                                                   data_excess_predictions$excess_lw,
+                                                                   data_excess_predictions$a_llm_lw,
+                                                                   data_excess_predictions$mean_llm_lw,
+                                                                   data_excess_predictions$sd_gf_lw,
+                                                                   10^q90_lw))
+
 CRPS_ExzMixNorm_GF_lw <- mean(trim=1/nrow(test_features), x=mapply(f_CRPS_MixNorm_Exz,
                                                                    data_excess_predictions$excess_lw,
                                                                    data_excess_predictions$a_llm_lw,
@@ -277,3 +284,57 @@ CRPS_Stetig_LLM_ExzMixNorm_lw <- mean(trim=1/nrow(data_excess_predictions %>%fil
                                                                                                               (data_excess_predictions %>%filter(excess_lw !=0))$sd_gf_lw,
                                                                                                               10^q90_lw
 ))
+
+
+
+crpscore_ergebnisse <- tibble(
+  Modell = c(
+    # MixNormmodelle
+    "MixNorm - NN", 
+    "Bernoulli - NN",
+    "Stetig - NN",
+    
+    "MixNorm - LLM",
+    "Bernoulli - LLM",
+    "Stetig - LLM ",
+    
+    # Exzessmodelle
+    "MixGPD - NN",
+    "Bernoulli - NN (MixGPD)",
+    "Stetig - NN (MixGPD)",
+    
+    "ExzMixNorm - NN", 
+    "Bernoulli - NN (ExzMixNorm)", 
+    "Stetig - NN (ExzMixNorm)",
+    
+    "ExzMixNorm - LLM",
+    "Bernoulli - LLM (ExzMixNorm)",
+    "Stetig - LLM (ExzMixNorm)"
+  ),
+  
+  CRPS_Wert = c(
+    # MixNormmodelle
+    CRPS_Mixnorm_NN_lw/CRPS_Mixnorm_GF_lw,
+    CRPS_Bernoulli_NN_MixNorm_lw/CRPS_Bernoulli_GF_MixNorm_lw,
+    CRPS_Stetig_NN_MixNorm_lw/CRPS_Stetig_GF_MixNorm_lw, 
+    
+    CRPS_Mixnorm_LLM_lw/CRPS_Mixnorm_GF_lw,
+    CRPS_Bernoulli_LLM_MixNorm_lw/CRPS_Bernoulli_GF_MixNorm_lw,
+    CRPS_Stetig_LLM_MixNorm_lw/CRPS_Stetig_GF_MixNorm_lw,
+    
+    # Exzessmodelle
+    CRPS_MixGPD_NN_lw/ CRPS_MixGPD_GF_lw,
+    CRPS_Bernoulli_NN_MixGPD_lw/CRPS_Bernoulli_GF_MixGPD_lw,
+    CRPS_Stetig_NN_MixGPD_lw/CRPS_Stetig_GF_MixGPD_lw,
+    
+    CRPS_ExzMixNorm_NN_lw/CRPS_ExzMixNorm_GF_lw,
+    CRPS_Bernoulli_NN_ExzMixNorm_lw/CRPS_Bernoulli_GF_MixGPD_lw, 
+    CRPS_Stetig_NN_ExzMixNorm_lw/CRPS_Stetig_GF_MixGPD_lw,
+    
+    CRPS_ExzMixNorm_LLM_lw/CRPS_ExzMixNorm_GF_lw,
+    CRPS_Bernoulli_LLM_ExzMixNorm_lw/CRPS_Bernoulli_GF_MixGPD_lw,
+    CRPS_Stetig_LLM_ExzMixNorm_lw/CRPS_Stetig_GF_MixGPD_lw
+  )
+)
+
+print(crpscore_ergebnisse)
