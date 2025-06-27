@@ -392,3 +392,6 @@ logscore_ergebnisse <- tibble(
 )
 
 print(logscore_ergebnisse)
+
+# Ergebnisse LogS und CRPS zusammengefasst
+left_join(logscore_ergebnisse, crpscore_ergebnisse, by = "Modell")
